@@ -39,8 +39,8 @@ class Database {
                 PDO::ATTR_PERSISTENT => true, // Helpful for cloud DB latency
                 
                 // === Aiven / Cloud DB SSL Requirement ===
-                \Pdo\Mysql::ATTR_SSL_CA => __DIR__ . '../../ca.pem',
-                \Pdo\Mysql::ATTR_SSL_VERIFY_SERVER_CERT => false,
+                PDO::MYSQL_ATTR_SSL_CA => __DIR__ . '../../ca.pem',
+                PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
             ];
 
             $this->conn = new PDO($dsn, $this->username, $this->password, $options);
